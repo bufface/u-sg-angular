@@ -1,7 +1,7 @@
 <h1>Password Generator</h1>
 
 <label>Enter Length</label>
-<input />
+<input (input)="onChangeLength($event.target.value)" />
 
 <div>
   <label>Use Letters</label>
