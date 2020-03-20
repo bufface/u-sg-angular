@@ -11,6 +11,11 @@ export class AppComponent {
   amount: number
   height: number
 
+  car = {
+    brand: 'Toyota',
+    data: 'Info about the car'
+  }
+
   onNameChange(value: string) {
     this.name = value
   }
