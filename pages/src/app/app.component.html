@@ -2,6 +2,7 @@
   <ul class="pagination">
     <li
       class="page-item"
+      appClass
       [ngClass]="{ disabled: currentPage === 0}"
     >
       <a (click)="currentPage = currentPage - 1" class="page-link">Prev</a>
@@ -25,13 +26,7 @@
   </ul>
 </nav>
 
-<!-- <div>
+<div>
   <h4>{{ images[currentPage].title }}</h4>
   <img [src]="images[currentPage].url" />
-</div> -->
-
-<div [ngSwitch]="currentPage">
-  <div *ngSwitchCase="0">
-    Current Page is 0
-  </div>
 </div>
