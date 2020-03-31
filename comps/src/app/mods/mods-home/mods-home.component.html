@@ -1,3 +1,9 @@
 <app-divider>Modal Component</app-divider>
 <button (click)="onClick()">Show Modal</button>
-<app-modal (close)="onClick()" *ngIf="modalOpen"></app-modal>
+<app-modal (close)="onClick()" *ngIf="modalOpen">
+  <div modalTitle>Super Title</div>
+  <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ex quaerat, velit magnam aliquid obcaecati aliquam cumque eligendi alias recusandae consequatur voluptates tempore, reiciendis corporis autem rem a aperiam, inventore eius.</p>
+  <ng-container modalFooter>
+    <button class="ui button" (click)="onClick()">Close me!</button>
+  </ng-container>
+</app-modal>
