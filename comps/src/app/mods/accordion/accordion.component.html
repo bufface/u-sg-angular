@@ -1,1 +1,11 @@
-<p>accordion works!</p>
+<div class="ui accordion styled">
+  <ng-container *ngFor="let item of items">
+    <div class="title">
+      <i class="dropdown icon"></i>
+      {{ item.title }}
+    </div>
+    <div class="content active">
+      {{ item.content }}
+    </div>
+  </ng-container>
+</div>
