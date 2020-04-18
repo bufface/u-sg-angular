@@ -10,12 +10,19 @@ export class PhotoShowComponent implements OnInit {
   photoUrl: string
 
   constructor(private photoService: PhotosService) {
-    this.photoService.getPhoto().subscribe(resp => {
-      this.photoUrl = resp.urls.regular
-    })
+    this.fetchFoto()
   }
 
   ngOnInit(): void {
   }
 
+  onClick() {
+    this.fetchFoto()
+  }
+
+  fetchFoto() {
+    this.photoService.getPhoto().subscribe(resp => {
+      this.photoUrl = resp.urls.regular
+    })
+  }
 }
