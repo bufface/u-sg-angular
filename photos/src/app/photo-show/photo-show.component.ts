@@ -7,10 +7,11 @@ import { PhotosService } from '../photos.service'
   styleUrls: ['./photo-show.component.css']
 })
 export class PhotoShowComponent implements OnInit {
+  photoUrl: string
 
   constructor(private photoService: PhotosService) {
     this.photoService.getPhoto().subscribe(resp => {
-      console.log(resp.urls.regular)
+      this.photoUrl = resp.urls.regular
     })
   }
 
