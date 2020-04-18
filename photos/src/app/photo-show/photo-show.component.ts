@@ -9,7 +9,9 @@ import { PhotosService } from '../photos.service'
 export class PhotoShowComponent implements OnInit {
 
   constructor(private photoService: PhotosService) {
-    this.photoService.getPhoto().subscribe(_ => {})
+    this.photoService.getPhoto().subscribe(resp => {
+      console.log(resp.urls.regular)
+    })
   }
 
   ngOnInit(): void {
