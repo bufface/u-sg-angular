@@ -1,7 +1,7 @@
 <form [formGroup]="cardForm" (ngSubmit)="onSubmit()">
   <app-input label="Name" [control]="cardForm.get('name')"></app-input>
   <app-input label="Card Number" [control]="cardForm.get('cardNumber')"></app-input>
-  <app-input label="Expiration" [control]="cardForm.get('expiration')"></app-input>
+  <app-input label="Expiration (MM/YY)" [control]="cardForm.get('expiration')"></app-input>
   <app-input label="Security Code" [control]="cardForm.get('securityCode')"></app-input>
 
   <button [disabled]="cardForm.invalid" class="button is-primary" type="submit">Submit</button>
