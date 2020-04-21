@@ -5,6 +5,9 @@
   <app-input label="Security Code" [control]="cardForm.get('securityCode')"></app-input>
 
   <button [disabled]="cardForm.invalid" class="button is-primary" type="submit">Submit</button>
+  <button (click)="onResetClick()" class="button is-warning" type="button">
+    Reset
+  </button>
 </form>
 <hr>
 <div>Form Contents: {{ cardForm.value | json }}</div>
