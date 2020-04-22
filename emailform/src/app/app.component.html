@@ -1,4 +1,4 @@
-<form #emailForm="ngForm">
+<form #emailForm="ngForm" (submit)="onSubmit()">
   <input
     type="email"
     pattern=".+@.+\..+"
@@ -16,6 +16,10 @@
       Format not valid
     </div>
   </ng-container>
+
+  <button [disabled]="emailForm.invalid">
+    Submit
+  </button>
 </form>
 
 <hr>
