@@ -5,12 +5,19 @@
     required
     name="email"
     [(ngModel)]="email"
+    #emailControl="ngModel"
   />
 
-  {{ email }}
+  <ng-container *ngIf="emailControl.invalid && emailControl.touched">
+    <div *ngIf="emailControl.errors.required">
+      Required
+    </div>
+    <div *ngIf="emailControl.errors.pattern">
+      Format not valid
+    </div>
+  </ng-container>
 </form>
 
 <hr>
 <div>{{ emailForm.valid }}</div>
 <div>{{ emailForm.value | json }}</div>
-<div>{{ emailForm.controls.email.errors | json }}</div>
