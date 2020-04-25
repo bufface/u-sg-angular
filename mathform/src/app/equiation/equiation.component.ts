@@ -16,7 +16,10 @@ export class EquiationComponent implements OnInit {
 
   constructor() { }
 
-  ngOnInit(): void {
+  ngOnInit() {
+    this.mathForm.statusChanges.subscribe(value => {
+      console.log(value)
+    })
   }
 
   get a () {
