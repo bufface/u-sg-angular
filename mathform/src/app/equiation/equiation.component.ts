@@ -12,7 +12,7 @@ export class EquiationComponent implements OnInit {
     a: new FormControl(this.randomNumber()),
     b: new FormControl(this.randomNumber()),
     answer: new FormControl('')
-  }, [ MathValidators.addition ])
+  }, [ MathValidators.addition('answer', 'a', 'b') ])
 
   constructor() { }
 
