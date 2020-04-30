@@ -9,6 +9,7 @@ import { MathValidators } from '../math-validators'
   styleUrls: ['./equiation.component.css']
 })
 export class EquiationComponent implements OnInit {
+  secondsPerSolution = 0
   mathForm = new FormGroup({
     a: new FormControl(this.randomNumber()),
     b: new FormControl(this.randomNumber()),
@@ -18,15 +19,23 @@ export class EquiationComponent implements OnInit {
   constructor() { }
 
   ngOnInit() {
+    const startTime = new Date()
+    let numberSolved = 0
+
     this.mathForm.statusChanges.pipe(
       filter(value => value === 'VALID'),
       delay(500)
-      ).subscribe(value => {
-      this.mathForm.setValue({
-        a: this.randomNumber(),
-        b: this.randomNumber(),
-        answer: ''
-      })
+      ).subscribe(() => {
+        numberSolved++
+        this.secondsPerSolution = (
+          new Date().getTime() - startTime.getTime()
+        ) / numberSolved / 1000
+      
+        this.mathForm.setValue({
+          a: this.randomNumber(),
+          b: this.randomNumber(),
+          answer: ''
+        })
     })
   }
 
