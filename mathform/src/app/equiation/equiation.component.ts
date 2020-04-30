@@ -18,7 +18,15 @@ export class EquiationComponent implements OnInit {
 
   ngOnInit() {
     this.mathForm.statusChanges.subscribe(value => {
-      console.log(value)
+      if (value === 'INVALID') {
+        return
+      }
+
+      this.mathForm.setValue({
+        a: this.randomNumber(),
+        b: this.randomNumber(),
+        answer: ''
+      })
     })
   }
 
