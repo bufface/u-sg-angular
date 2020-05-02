@@ -4,10 +4,7 @@
   <input formControlName="answer" />
 </form>
 
-{{ secondsPerSolution | number: '1.1-3' }}
 
 <div class="stats">
-  <div>Valid: {{ mathForm.valid }}</div>
-  <div>Values: {{ mathForm.value | json }}</div>
-  <div>Errors: {{ mathForm.errors | json }}</div>
+  {{ secondsPerSolution | number: '1.1-3' }}
 </div>
