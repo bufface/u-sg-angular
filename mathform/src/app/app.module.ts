@@ -4,11 +4,13 @@ import { ReactiveFormsModule } from '@angular/forms'
 
 import { AppComponent } from './app.component';
 import { EquiationComponent } from './equiation/equiation.component';
+import { AnswerHighlightDirective } from './answer-highlight.directive';
 
 @NgModule({
   declarations: [
     AppComponent,
-    EquiationComponent
+    EquiationComponent,
+    AnswerHighlightDirective
   ],
   imports: [
     BrowserModule,
