@@ -14,6 +14,12 @@ export class AnswerHighlightDirective {
       .pipe(
         map(({ a, b, answer }) => Math.abs((a + b - answer) / (a + b))),
       )
-      .subscribe()
+      .subscribe(val => {
+        if (val < 0.2) {
+          this.el.nativeElement.classList.add('close')
+        } else {
+          this.el.nativeElement.classList.remove('close')
+        }
+      })
   }
 }
