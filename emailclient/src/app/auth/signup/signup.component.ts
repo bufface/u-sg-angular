@@ -64,6 +64,6 @@ export class SignupComponent implements OnInit {
             this.authForm.setErrors({ unknowError: true })
           }
         }
-      }
+      })
   }
 }
