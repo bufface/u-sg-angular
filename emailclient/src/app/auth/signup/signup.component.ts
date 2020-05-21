@@ -60,6 +60,8 @@ export class SignupComponent implements OnInit {
           // No internet: err.status === 0
           if (!err.status) {
             this.authForm.setErrors({ noConnection: true })
+          } else {
+            this.authForm.setErrors({ unknowError: true })
           }
         }
       }
