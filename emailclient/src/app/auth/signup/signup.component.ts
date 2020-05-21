@@ -52,8 +52,16 @@ export class SignupComponent implements OnInit {
       ...rest,
       passwordConfirmation: confirmation
     })
-      .subscribe(res => {
-        console.log(res)
-      })
+      .subscribe({
+        next: (resp) => {
+
+        },
+        error: (err) => {
+          // No internet: err.status === 0
+          if (!err.status) {
+            this.authForm.setErrors({ noConnection: true })
+          }
+        }
+      }
   }
 }
