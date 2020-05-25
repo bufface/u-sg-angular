@@ -1,7 +1,6 @@
 import { Injectable } from '@angular/core';
-import { HttpInterceptor, HttpRequest, HttpHandler, HttpEvent, HttpEventType } from '@angular/common/http';
+import { HttpInterceptor, HttpRequest, HttpHandler, HttpEvent } from '@angular/common/http';
 import { Observable } from 'rxjs';
-import { filter } from 'rxjs/operators';
 
 @Injectable()
 export class AuthHttpInterceptor implements HttpInterceptor {
@@ -14,8 +13,5 @@ export class AuthHttpInterceptor implements HttpInterceptor {
     })
 
     return next.handle(modReq)
-      .pipe(
-        filter(val => val.type === HttpEventType.Sent)
-      )
   }
 }
