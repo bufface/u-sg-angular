@@ -34,6 +34,13 @@ export class SigninComponent implements OnInit {
     }
 
     this.autService.signin(this.authForm.value)
-      .subscribe(() => {  })
+      .subscribe({
+        next: () => {},
+        error: ({ error }) => {
+          if (error.username || error.password) {
+            this.authForm.setErrors({ credentials: true })
+          }
+        }
+      })
   }
 }
