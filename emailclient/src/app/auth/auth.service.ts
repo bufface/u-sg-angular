@@ -8,8 +8,8 @@ interface UsernameAvailableResponse {
 }
 
 interface SignupCredentials {
-  username: string,
-  password: string,
+  username: string
+  password: string
   passConfirmation: string
 }
 
@@ -18,8 +18,13 @@ interface SignupResponse {
 }
 
 interface SigninResponse {
-  authenticated: boolean,
+  authenticated: boolean
   username: string
+}
+
+interface SigninCredentials {
+  username: string
+  password: string
 }
 
 @Injectable({
@@ -67,5 +72,14 @@ export class AuthService {
         this.signedin$.next(false)
       })
     )
+  }
+
+  signin(credentials: SigninCredentials) {
+    return this.http.post(this.rootUrl + '/auth/signin', credentials)
+      .pipe(
+        tap(() => {
+          this.signedin$.next(true)
+        })
+      )
   }
 }
