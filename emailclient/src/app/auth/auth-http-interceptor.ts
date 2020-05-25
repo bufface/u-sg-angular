@@ -12,9 +12,10 @@ export class AuthHttpInterceptor implements HttpInterceptor {
     const modReq = req.clone({
       withCredentials: true
     })
+
     return next.handle(modReq)
-    .pipe(
-      filter(val => val.type === HttpEventType.Sent)
-    )
+      .pipe(
+        filter(val => val.type === HttpEventType.Sent)
+      )
   }
 }

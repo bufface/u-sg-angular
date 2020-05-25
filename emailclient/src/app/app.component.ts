@@ -11,7 +11,7 @@ export class AppComponent {
   signedin$: BehaviorSubject<boolean>
 
   constructor(private authService: AuthService) {
-    this.signedin$ = this.authService.singedin$
+    this.signedin$ = this.authService.signedin$
   }
 
   ngOnInit() {
